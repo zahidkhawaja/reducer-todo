@@ -18,8 +18,10 @@ function App() {
        Todo Project
       </header>
       <div className = "tasks">
-        {state.map(item => 
+        {state.toDoItems.map(item => 
+        <div> 
         <p>{item.item}</p>
+        </div>
         )}
         </div>
         <input value = {newTaskText} onChange = {handleChanges} ></input>
