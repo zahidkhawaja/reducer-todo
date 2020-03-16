@@ -8,7 +8,7 @@ export const initialState = {
     {
         item: "Do the laundry",
         completed: false,
-        id: 74382374837
+        id: 893849273482
     }
 ],
     toggled: false,
@@ -28,6 +28,20 @@ export const reducer = (state, action) => {
                     id: new Date()
                 }
             ]
+            }
+        case "MARK_COMPLETED":
+            return {
+                ...state,
+                toDoItems: [
+                    ...state.toDoItems,
+                    {
+                        ...state.toDoItems.map(task => {
+                            if(task.id == action.payload.id) {
+                                task.completed = !action.payload.completed;
+                            }
+                        })
+                    }
+                ]
             }
             
         default: 
