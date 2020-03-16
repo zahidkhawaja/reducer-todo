@@ -27,7 +27,7 @@ function App() {
         <input value = {newTaskText} onChange = {handleChanges} ></input>
         <button onClick = {() => dispatch({ type: "ADD_TASK", payload: newTaskText })}>Add Task</button>
         <br/>
-        <button>Clear Completed</button>
+        <button onClick = {() => dispatch({ type: "REMOVE_COMPLETED", payload: state})}>Clear Completed</button>
     </div>
   );
 }

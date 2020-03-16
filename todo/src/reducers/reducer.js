@@ -43,6 +43,18 @@ export const reducer = (state, action) => {
                     }
                 ]
             }
+
+        case "REMOVE_COMPLETED":
+            return {
+                ...state,
+                toDoItems: [
+                    ...state.toDoItems.filter(task => {
+                        return task.completed == false;
+                    })
+                ]
+                    
+
+            }
             
         default: 
             return state;
