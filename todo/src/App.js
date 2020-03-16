@@ -19,8 +19,8 @@ function App() {
       </header>
       <div className = "tasks">
         {state.toDoItems.map(item => 
-        <div className = {item.completed ? "completed" : ""} onClick = {() => dispatch({ type: "MARK_COMPLETED", payload: item})}> 
-        <p>{item.item}</p>
+        <div id = {item.id} className = {item.completed ? "completed" : ""} onClick = {() => dispatch({ type: "MARK_COMPLETED", payload: item})}> 
+        <p>{item.item} {item.id}</p>
         </div>
         )}
         </div>

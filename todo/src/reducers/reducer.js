@@ -1,14 +1,16 @@
+import moment from "moment";
+
 export const initialState = {
     toDoItems: [
         {
         item: "Walk the dog",
         completed: false,
-        id: 74382374837
+        id: moment(1584397186647).format('MMMM Do YYYY, h:mm:ss')
     },
     {
         item: "Do the laundry",
         completed: false,
-        id: 893849273482
+        id: moment(1584597186748).format('MMMM Do YYYY, h:mm:ss')
     }
 ],
     toggled: false,
@@ -25,7 +27,7 @@ export const reducer = (state, action) => {
                 {
                     item: action.payload,
                     completed: false,
-                    id: new Date()
+                    id: moment(Date.now()).format('MMMM Do YYYY, h:mm:ss')
                 }
             ]
             }
