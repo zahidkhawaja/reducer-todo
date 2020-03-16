@@ -5,8 +5,6 @@ import { initialState, reducer } from "./reducers/reducer";
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [newTaskText, setNewTaskText] = useState("");
-  console.log("INITIAL STATE", initialState);
-  console.log("NEW STATE", state);
 
   const handleChanges = e => {
     setNewTaskText(e.target.value);
@@ -15,8 +13,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-       Todo Project
+       <h1>Todo Project</h1>
       </header>
+      <div className = "todo">
       <div className = "tasks">
         {state.toDoItems.map(item => 
         <div id = {item.id} className = {item.completed ? "completed" : ""} onClick = {() => dispatch({ type: "MARK_COMPLETED", payload: item})}> 
@@ -24,7 +23,9 @@ function App() {
         </div>
         )}
         </div>
+        </div>
         <input value = {newTaskText} onChange = {handleChanges} ></input>
+        <br/>
         <button onClick = {() => dispatch({ type: "ADD_TASK", payload: newTaskText })}>Add Task</button>
         <br/>
         <button onClick = {() => dispatch({ type: "REMOVE_COMPLETED", payload: state})}>Clear Completed</button>
